@@ -16,7 +16,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_REALNAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/OpenPrinting/cups-filters/releases/download/$(PKG_VERSION)/(PKG_SOURCE)
-PKG_MD5SUM:=90ebcae31f2eabd802236408646b1dd9
+PKG_MD5SUM:=5265c07dc794ae945d118b0e43900609
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_REALNAME)-$(PKG_VERSION)
 TARGET_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
@@ -41,7 +41,7 @@ define Build/Configure
 		--disable-avahi \
 		--disable-ghostscript \
 		--disable-nls \
-		--disable-avahi \
+		--enable-avahi \
 		--disable-ldap \
 		--disable-largefile \
 		--disable-mutool \
