@@ -41,7 +41,7 @@ define Build/Configure
 		--disable-avahi \
 		--disable-ghostscript \
 		--disable-nls \
-		--enable-avahi \
+		--disable-avahi \
 		--disable-ldap \
 		--disable-largefile \
 		--disable-mutool \
