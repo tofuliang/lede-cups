@@ -15,7 +15,7 @@ PKG_VERSION_D:=1-28-11
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_REALNAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/OpenPrinting/cups-filters/releases/download/$(PKG_VERSION)/(PKG_SOURCE)
+PKG_SOURCE_URL:=https://github.com/OpenPrinting/cups-filters/releases/download/$(PKG_VERSION)/
 PKG_MD5SUM:=5265c07dc794ae945d118b0e43900609
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_REALNAME)-$(PKG_VERSION)
 TARGET_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib
