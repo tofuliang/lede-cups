@@ -28,7 +28,7 @@ define Package/lcms2
 endef
 
 define Package/lcms2/description
-  Little CMS color engine
+	Little CMS color engine
 endef
 
 define Package/lcms2/install
