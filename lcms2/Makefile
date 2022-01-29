@@ -28,19 +28,19 @@ define Package/lcms2
 endef
 
 define Package/lcms2/description
-        Little CMS color engine
+  Little CMS color engine
 endef
 
 define Package/lcms2/install
-        $(INSTALL_DIR) $(1)/usr/bin $(1)/usr/lib
-        $(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
-        $(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/bin $(1)/usr/lib
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
 endef
 
 define Build/InstallDev
-        $(INSTALL_DIR) $(1)/usr/include $(1)/usr/lib
-        $(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/
-        $(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib
+	$(INSTALL_DIR) $(1)/usr/include $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib
 endef
 
 $(eval $(call BuildPackage,lcms2))
