@@ -19,9 +19,9 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/lcms2
-  SECTION:=Cenditel-libraries
-  CATEGORY:=Cenditel
-  SUBMENU:=libraries
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Printing
   TITLE:=Little CMS color engine
   DEPENDS:=+libtiff +libjpeg +zlib
   URL:=http://www.littlecms.com/
