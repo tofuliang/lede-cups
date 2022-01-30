@@ -44,7 +44,10 @@ define Package/qpdf/install
 endef
 
 define Build/Compile
-	$(call Build/Compile/Default, LIBTOOL="./libtool --tag=CXX")
+	$(call Build/Compile/Default, \
+	--with-random=/dev/urandom \
+	LIBTOOL="./libtool --tag=CXX" \
+	)
 endef
 
 define Build/InstallDev
