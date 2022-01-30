@@ -45,8 +45,8 @@ endef
 
 define Build/Compile
 	$(call Build/Compile/Default, \
-	--with-random=/dev/urandom \
-	LIBTOOL="./libtool --tag=CXX" \
+		--with-random=/dev/urandom \
+		LIBTOOL="./libtool --tag=CXX" \
 	)
 endef
 
