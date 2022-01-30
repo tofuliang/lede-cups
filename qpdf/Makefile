@@ -43,11 +43,14 @@ define Package/qpdf/install
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
 endef
 
-define Build/Compile
-	$(call Build/Compile/Default, \
-		--with-random=/dev/urandom \
-		LIBTOOL="./libtool --tag=CXX" \
+define Build/Configure
+	$(call Build/Configure/Default, \
+		--enable-insecure-random \
 	)
+endef
+
+define Build/Compile
+	$(call Build/Compile/Default, LIBTOOL="./libtool --tag=CXX")
 endef
 
 define Build/InstallDev
