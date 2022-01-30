@@ -46,6 +46,7 @@ endef
 define Build/Configure
 	$(call Build/Configure/Default, \
 		--enable-insecure-random \
+		--disable-os-secure-random \
 	)
 endef
 
