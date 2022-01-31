@@ -37,25 +37,7 @@ define Package/cups-opfilter/description
 endef
 
 define Build/Configure
-	$(call Build/Configure/Default, \
-		--disable-avahi \
-		--disable-ghostscript \
-		--disable-nls \
-		--disable-avahi \
-		--disable-ldap \
-		--disable-largefile \
-		--disable-mutool \
-		--disable-ghostscript \
-		--disable-gs-ps2write \
-		--enable-foomatic \
-		--disable-lcms \
-		--disable-poppler \
-		--disable-dbus \
-		--enable-imagefilters \
-		--prefix=$(PKG_INSTALL_DIR) \
-		UNAME="Linux" \
-		LIBS="$(TARGET_LDFLAGS)" \
-	)
+	$(call Build/Configure/Default)
 endef
 
 define Build/Compile
