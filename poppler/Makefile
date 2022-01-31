@@ -1,0 +1,58 @@
+#
+# Copyright (C) 2013 OpenWrt.org
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=poppler
+PKG_VERSION:=22.01.0
+PKG_RELEASE:=1
+
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://github.com/freedesktop/poppler/archive/refs/tags/
+PKG_MD5SUM:=c2cbd8d8b276b8fe51f0fc86e133afe5
+
+PKG_INSTALL:=1
+
+include $(INCLUDE_DIR)/package.mk
+
+define Package/poppler
+  SECTION:=utils
+  CATEGORY:=Utilities
+  TITLE:=Poppler PDF rendering library
+  DEPENDS:=+libpng +libtiff +libjpeg +zlib +lcms2 +fontconfig +libpthread +libfreetype +libstdcpp
+  URL:=http://poppler.freedesktop.org/
+  SUBMENU:=Printing
+endef
+
+define Package/poppler/description
+	Poppler is a PDF rendering library based on the xpdf-3.0 code base.
+endef
+
+define Package/poppler/install
+	$(INSTALL_DIR) $(1)/usr/bin $(1)/usr/lib
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
+endef
+
+
+define Build/Configure
+	$(call Build/Configure/Default)
+endef
+
+define Build/Compile
+	$(call Build/Compile/Default)
+endef
+
+define Build/InstallDev
+	$(INSTALL_DIR) $(1)/usr/include/cpp $(1)/usr/lib
+	$(CP) -r $(PKG_INSTALL_DIR)/usr/include/poppler $(1)/usr/include/
+	$(CP) -r $(PKG_BUILD_DIR)/cpp/poppler-version.h $(1)/usr/include/cpp
+	$(CP) -r $(PKG_BUILD_DIR)/cpp/poppler-global.h $(1)/usr/include/cpp
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib
+endef
+
+$(eval $(call BuildPackage,poppler))
