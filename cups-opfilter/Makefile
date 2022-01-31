@@ -27,7 +27,7 @@ define Package/cups-opfilter
   SUBMENU:=Printing
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+cups +libcups +libcupsimage +libstdcpp +libtiff +libpng +libjpeg +glib2 +libfreetype +fontconfig +lcms2 +qpdf +avahi
+  DEPENDS:=+cups +libcups +libcupsimage +libstdcpp +libtiff +libpng +libjpeg +glib2 +libfreetype +fontconfig +lcms2 +qpdf +avahi +poppler
   TITLE:=Common UNIX Printing System - OpenPrinting Image Filters
 endef
 
