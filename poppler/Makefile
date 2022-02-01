@@ -18,6 +18,7 @@ PKG_MD5SUM:=c2cbd8d8b276b8fe51f0fc86e133afe5
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
+include $(INCLUDE_DIR)/cmake.mk
 
 define Package/poppler
   SECTION:=utils
