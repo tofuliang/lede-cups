@@ -27,7 +27,7 @@ define Package/cups-opfilter
   SUBMENU:=Printing
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+cups +libcups +libcupsimage +libstdcpp +libtiff +libpng +libjpeg +glib2 +libfreetype +fontconfig +lcms2 +qpdf +avahi +poppler
+  DEPENDS:=+cups +libcups +libcupsimage +libstdcpp +libtiff +libpng +libjpeg +glib2 +libfreetype +fontconfig +lcms2 +qpdf +avahi +ghostscript
   TITLE:=Common UNIX Printing System - OpenPrinting Image Filters
 endef
 
@@ -37,7 +37,18 @@ define Package/cups-opfilter/description
 endef
 
 define Build/Configure
-	$(call Build/Configure/Default)
+	$(call Build/Configure/Default, \
+		--enable-imagefilters \
+		--with-pdftops=gs \
+		--with-gs-path=/usr/bin/gs \
+		--with-pdftops-path=/usr/bin/gs \
+		--disable-gnutls \
+		--disable-openssl \
+		--disable-cdsassl \
+		--disable-ssl \
+		--disable-gssapi \
+		--enable-avahi \
+	)
 endef
 
 define Build/Compile
