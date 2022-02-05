@@ -48,6 +48,10 @@ define Build/Configure
 		--disable-ssl \
 		--disable-gssapi \
 		--disable-avahi \
+		--disable-dbus \
+		--prefix=$(PKG_INSTALL_DIR) \
+		UNAME="Linux" \
+		LIBS="$(TARGET_LDFLAGS)" \
 	)
 endef
 
