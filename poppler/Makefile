@@ -17,8 +17,6 @@ PKG_MD5SUM:=c2cbd8d8b276b8fe51f0fc86e133afe5
 
 PKG_INSTALL:=1
 
-CMAKE_SOURCE_SUBDIR:=cpp
-
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
