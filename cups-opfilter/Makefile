@@ -92,4 +92,4 @@ define Package/postinst
 /etc/init.d/cupsd start
 endef
 
-$(eval $(call BuildPackage,openprinting-cups-filters))
+$(eval $(call BuildPackage,cups-opfilter))
