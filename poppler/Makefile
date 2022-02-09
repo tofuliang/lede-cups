@@ -20,7 +20,6 @@ PKG_INSTALL:=1
 CMAKE_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
-include $(INCLUDE_DIR)/cmake.mk
 
 define Package/poppler
   SECTION:=utils
