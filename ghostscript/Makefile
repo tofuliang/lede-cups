@@ -41,10 +41,10 @@ define Build/Configure
 	--without-libidn \
 	--without-x \
 	--without-jasper \
+	--with-pdf=no \
 	--without-jbig2dec  \
 	--with-install-cups \
 	--with-fontpath /usr/share/fonts/ghostscript/fonts/:/usr/share/ghostscript/9.55.0/Resource/Font/:/usr/share/fonts/default/ghostscript/:/usr/share/fonts/default/TrueType/:/usr/share/fonts/default/Type1:/usr/share/cups/fonts/:/usr/share/fonts/:/usr/share/fonts/ubuntu/:/usr/share/fonts/truetype/liberation/ \
-	--with-system-libtiff \
 	--with-cups-serverbin="/usr/lib/cups" \
 	--with-cups-serverroot="/etc/cups" \
 	--with-cups-datadir="/usr/share/cups")
@@ -55,7 +55,6 @@ define Build/Compile
 	# PS. doing all in sed would be painful because the commands would need too much escaping.
 	$(SED) 's,OPENWRT_BASE_BUILD_PATH,$(HOST_BUILD_DIR),g' $(PKG_BUILD_DIR)/base/unix-aux.mak
 	$(SED) 's,OPENWRT_PGK_BUILD_PATH,$(PKG_BUILD_DIR),g' $(PKG_BUILD_DIR)/base/unix-aux.mak
-	$(call Build/Compile/Default, cross_prepare)
 	$(call Build/Compile/Default)
 endef
 
@@ -67,6 +66,7 @@ define Host/Configure
 	--without-jasper \
 	--without-jbig2dec \
 	--without-pdftoraster \
+	--with-pdf=no \
 	--without-libpaper \
 	--disable-gtk	\
 	--without-libidn)
@@ -96,17 +96,17 @@ define Package/ghostscript/install
 	#	$(INSTALL_DIR) $(1)/usr/lib/cups/filter
 	#	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/cups/filter/* $(1)/usr/lib/cups/filter
 	$(INSTALL_DIR) $(1)/usr/share/cups/model
-	$(CP) $(PKG_INSTALL_DIR)/usr/share/cups/model/* $(1)/usr/share/cups/model
+	#$(CP) $(PKG_INSTALL_DIR)/usr/share/cups/model/* $(1)/usr/share/cups/model
 	$(INSTALL_DIR) $(1)/usr/share/ghostscript/$(PKG_VERSION)/lib
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/share/ghostscript/$(PKG_VERSION)/lib/* \
 		$(1)/usr/share/ghostscript/$(PKG_VERSION)/lib
 	$(CP) -r $(PKG_BUILD_DIR)/Resource $(1)/usr/share/ghostscript/$(PKG_VERSION)/
 	$(CP) -r $(PKG_BUILD_DIR)/iccprofiles $(1)/usr/share/ghostscript/$(PKG_VERSION)/
 	# $(INSTALL_DIR) $(1)/usr/share/ghostscript/$(PKG_VERSION)/examples/cjk
-	$(CP) -r $(PKG_INSTALL_DIR)/usr/share/ghostscript/$(PKG_VERSION)/examples \
+	#$(CP) -r $(PKG_INSTALL_DIR)/usr/share/ghostscript/$(PKG_VERSION)/examples \
 	 	$(1)/usr/share/ghostscript/$(PKG_VERSION)/examples
 	$(INSTALL_DIR) $(1)/etc/cups
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/etc/cups/gstoraster.convs $(1)/etc/cups
+	#$(INSTALL_DATA) $(PKG_INSTALL_DIR)/etc/cups/gstoraster.convs $(1)/etc/cups
 endef
 
 $(eval $(call HostBuild))

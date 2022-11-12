@@ -6,12 +6,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cups-opfilter
-PKG_VERSION:=1.28.11
+PKG_VERSION:=1.28.16
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_REALNAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=cups-filters-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/OpenPrinting/cups-filters/releases/download/$(PKG_VERSION)/
-PKG_MD5SUM:=5265c07dc794ae945d118b0e43900609
+PKG_MD5SUM:=c9800c11ed7dd694fc3298440fcd97c7
 PKG_BUILD_DIR:=$(BUILD_DIR)/cups-filters-$(PKG_VERSION)
 
 PKG_INSTALL:=1
@@ -40,6 +40,7 @@ define Build/Configure
 	--with-pdftops=gs \
 	--with-gs-path=/usr/bin/gs \
 	--with-pdftops-path=/usr/bin/gs \
+	--disable-exif \
 	--disable-gnutls \
 	--disable-openssl \
 	--disable-cdsassl \

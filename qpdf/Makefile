@@ -24,7 +24,7 @@ define Package/qpdf
   SECTION:=net
   CATEGORY:=Network
   TITLE:=QPDF is a command-line program for transformations on PDF files.
-  DEPENDS:= +libpcre +zlib +libstdcpp +libjpeg-turbo +libatomic
+  DEPENDS:= +libpcre +zlib +libstdcpp +libjpeg-turbo +libatomic +libopenssl +libgnutls
   URL:=http://qpdf.sourceforge.net/
   SUBMENU:=Printing
 endef
